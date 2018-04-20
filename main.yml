@@ -1,0 +1,14 @@
+---
+ - hosts: webserver
+   remote_user: root
+   tasks:
+   - name: test ping
+     ping:
+   - name: install docker
+     script: "scripts/docker.sh"
+   - name: test docker
+     shell: "docker run hello-world"
+     register: docker
+   - debug: msg={{docker.stdout_lines}}
+   - name: install shadowsock
+     script: "scripts/shadowsocks.sh"
