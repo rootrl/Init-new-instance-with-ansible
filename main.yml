@@ -8,6 +8,8 @@
      shell: "yum update -y"
    - name: "install git"
      shell: "yum install git -y"
+   - name: "go environment"
+     script: "scripts/go.sh"
    - name: install docker
      script: "scripts/docker.sh"
    - name: test docker
